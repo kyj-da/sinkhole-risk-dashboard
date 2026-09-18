@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+.vscode/
+
+final_dashboard_data.pkl
+final_dashboard_data_small.pkl
+final_dashboard_data.parquet
+df_lr_with_geo_final.pkl
+
+check_data.py
+logistic_baseline.pkl
