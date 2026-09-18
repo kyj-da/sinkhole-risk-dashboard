@@ -6,19 +6,27 @@ import streamlit as st
 @st.cache_data
 def load_data():
 
-    df1 = gpd.read_parquet("df_grid_1.parquet")
-    df2 = gpd.read_parquet("df_grid_2.parquet")
+    # -----------------------------------------------------
+    # 1. 경량화된 격자 데이터
+    # -----------------------------------------------------
+
+    df1 = pd.read_parquet(
+        "df_grid_1.parquet"
+    )
+
+    df2 = pd.read_parquet(
+        "df_grid_2.parquet"
+    )
 
     df_grid = pd.concat(
         [df1, df2],
-        ignore_index=True
+        ignore_index=True,
     )
 
-    df_grid = gpd.GeoDataFrame(
-        df_grid,
-        geometry="geometry",
-        crs=df1.crs
-    )
+
+    # -----------------------------------------------------
+    # 2. 지도 경계 데이터
+    # -----------------------------------------------------
 
     gdf_city = gpd.read_parquet(
         "gdf_city.parquet"
@@ -28,4 +36,13 @@ def load_data():
         "gdf_dong_clean.parquet"
     )
 
-    return df_grid, gdf_city, gdf_dong
+
+    # -----------------------------------------------------
+    # 3. 반환
+    # -----------------------------------------------------
+
+    return (
+        df_grid,
+        gdf_city,
+        gdf_dong,
+    )
