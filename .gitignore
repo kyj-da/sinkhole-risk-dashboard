@@ -5,7 +5,11 @@ __pycache__/
 final_dashboard_data.pkl
 final_dashboard_data_small.pkl
 final_dashboard_data.parquet
+final_dashboard_data_1.parquet
+final_dashboard_data_2.parquet
 df_lr_with_geo_final.pkl
+dong_boundary.pkl
 
 check_data.py
+preprocess_dashboard.py
 logistic_baseline.pkl
